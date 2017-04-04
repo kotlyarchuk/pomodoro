@@ -93,6 +93,7 @@ function startClock(){
 
         nextmin = min;
 
+
         if (sec == 0) {
             nextsec = 59;
             nextmin = min - 1;
