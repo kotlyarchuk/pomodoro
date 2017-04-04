@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://use.fontawesome.com/a6c83e932f.js"></script>
+    <title>Pomodoro clock</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
+    <link rel="stylesheet" href="css/pomodoro.css" />
+</head>
+
+<body>
+    <div class='d-inline-block'>
+
+        <div class="header-wrapper mt-5 mb-3">
+            <h1 class="header">Pomodoro clock</h1>
+        </div>
+
+        <div class="top-wrapper text-center m-0 p-4">
+            <div class="row mb-3 text-center">
+                <div class="col-sm-6 text-center">
+                    <h3>Session</h3>
+                </div>
+
+
+                <div class="col-sm-6 text-center">
+                    <h3>Break</h3>
+                </div>
+            </div>
+
+
+            <div class="row text-center">
+                <i class="col-sm-2 fa fa-angle-down fa-2x px-4 sess-down"></i>
+                <h3 class="col-sm-2 d-inline-block num session-num">25</h3>
+                <i class="col-sm-2 fa fa-angle-up fa-2x px-4 sess-up"></i>
+                <i class="col-sm-2 fa fa-angle-down fa-2x px-4 break-down"></i>
+                <h3 class="col-sm-2 d-inline-block num break-num">5</h3>
+                <i class="col-sm-2 fa fa-angle-up fa-2x px-4 break-up"></i>
+            </div>
+        </div>
+
+
+        <div class="bottom-wrapper mt-3 text-center py-4">
+            <div class="row">
+                <div class="col-sm-6">
+                    <i class="fa fa-play fa-3x px-4 play"></i>
+                </div>
+                <div class="col-sm-6">
+                    <i class="fa fa-refresh fa-3x px-4 refresh"></i>
+                </div>
+            </div>
+            <div class="mt-3 mb-4">
+                <h2>Session</h2>
+                <h1 class="display-2 num"><span class="minutes">25</span>:<span class="seconds">00</span></h1>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <i class="fa fa-pause fa-3x px-4 pause"></i>
+                </div>
+                <div class="col-sm-6">
+                    <i class="fa fa-stop fa-3x px-4 stop"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
+      src="http://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <script src="js/pomodoro.js"></script>
+</body>
