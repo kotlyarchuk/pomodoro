@@ -1,11 +1,15 @@
 $(document).ready(function(){
 
+    title = "session";
+
     $(".play").on('click', function(){
         hideControls();
         startClock();
     });
 
     $(".stop").on("click", function(){
+        $(".minutes").css("color" , "white");
+        $(".seconds").css("color" , "white");
         showControls();
         stopClock();
         sess_num = $(".session-num").text();
@@ -13,6 +17,8 @@ $(document).ready(function(){
     });
 
     $(".pause").on("click", function(){
+        $(".minutes").css("color" , "white");
+        $(".seconds").css("color" , "white");
         stopClock();
         setTime(min, nextsec);
     });
@@ -58,6 +64,8 @@ $(document).ready(function(){
 
 });
 
+
+
 function setTime(min, sec){
     $(".minutes").text(min);
     $(".seconds").text(sec);
@@ -69,9 +77,22 @@ function stopClock(){
 
 function startClock(){
     timer = setInterval(function(){
+
         sec = +$(".seconds").text();
         min = +$(".minutes").text();
+
+
+        if(min <= 1 && sec > 30){
+            setTimerColor("yellow");
+        } else if (min < 1 && sec <= 30) {
+            setTimerColor("red");
+        } else {
+            setTimerColor("green");
+        }
+
+
         nextmin = min;
+
         if (sec == 0) {
             nextsec = 59;
             nextmin = min - 1;
@@ -84,7 +105,23 @@ function startClock(){
                 nextsec = sec - 1;
                 setTime(nextmin, nextsec);
             }
+        }
 
+
+        if (nextmin == 0 && nextsec == 0 && title !== "Break"){
+            stopClock();
+            breakmin = $(".break-num").text();
+            title = "Break";
+            $(".title").text(title);
+            setTime(breakmin, "00");
+            startClock();
+        } else if (nextmin == 0 && nextsec == 0 && title === "Break") {
+            stopClock();
+            sessmin = $(".session-num").text();
+            title = "Session";
+            $(".title").text(title);
+            setTime(sessmin, "00");
+            startClock();
         }
 
 
@@ -103,4 +140,9 @@ function showControls(){
     $(".break-down").removeClass("hidden");
     $(".sess-up").removeClass("hidden");
     $(".sess-down").removeClass("hidden");
+}
+
+function setTimerColor(color){
+    $(".minutes").css("color" , color);
+    $(".seconds").css("color" , color);
 }
